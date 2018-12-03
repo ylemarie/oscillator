@@ -8,3 +8,4 @@
 * npm install socket.io
 * npm install jsonfile
 
+* https://canvas-gauges.com/documentation/examples/
