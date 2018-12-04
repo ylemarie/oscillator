@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+    <title>Gauges as Components</title>
+    <script src="./node_modules/canvas-gauges/gauge.min.js"></script>
+</head>
+<body>
+<canvas data-type="radial-gauge"
+    data-width="300"
+    data-height="300"
+    data-units="Oscillo n°1"
+    data-min-value="-90"
+    data-start-angle="180"
+    data-ticks-angle="180"
+    data-value-box="false"
+    data-max-value="90"
+    data-major-ticks="-90,-70,-50,-30,-10,10,30,50,70,90"
+    data-minor-ticks="2"
+    data-stroke-ticks="true"
+    data-highlights='[
+        {"from": 0, "to": 90, "color": "rgba(200, 50, 50, .75)"}
+    ]'
+    data-color-plate="#fff"
+    data-border-shadow-width="0"
+    data-borders="false"
+    data-needle-type="arrow"
+    data-needle-width="2"
+    data-needle-circle-size="7"
+    data-needle-circle-outer="true"
+    data-needle-circle-inner="false"
+    data-animation-duration="1500"
+    data-animation-rule="linear"
+    data-animation-target="plate"
+></canvas>
+
+<!-- Injecting linear gauge -->
+<canvas data-type="linear-gauge"
+        data-width="160"
+        data-height="600"
+        data-border-radius="20"
+        data-borders="0"
+        data-bar-stroke-width="20"
+        data-minor-ticks="10"
+        data-major-ticks="0,10,20,30,40,50,60,70,80,90,100"
+        data-value="22.3"
+        data-units="°C"
+        data-color-value-box-shadow="false"
+></canvas>
+
+<!-- Injecting radial gauge -->
+<canvas data-type="radial-gauge"
+        data-width="400"
+        data-height="400"
+        data-units="Km/h"
+        data-title="false"
+        data-value="0"
+        data-min-value="0"
+        data-max-value="220"
+        data-major-ticks="0,20,40,60,80,100,120,140,160,180,200,220"
+        data-minor-ticks="2"
+        data-stroke-ticks="false"
+        data-highlights='[
+            { "from": 0, "to": 50, "color": "rgba(0,255,0,.15)" },
+            { "from": 50, "to": 100, "color": "rgba(255,255,0,.15)" },
+            { "from": 100, "to": 150, "color": "rgba(255,30,0,.25)" },
+            { "from": 150, "to": 200, "color": "rgba(255,0,225,.25)" },
+            { "from": 200, "to": 220, "color": "rgba(0,0,255,.25)" }
+        ]'
+        data-color-plate="#222"
+        data-color-major-ticks="#f5f5f5"
+        data-color-minor-ticks="#ddd"
+        data-color-title="#fff"
+        data-color-units="#ccc"
+        data-color-numbers="#eee"
+        data-color-needle-start="rgba(240, 128, 128, 1)"
+        data-color-needle-end="rgba(255, 160, 122, .9)"
+        data-value-box="true"
+        data-animation-rule="bounce"
+        data-animation-duration="500"
+        data-font-value="Led"
+        data-animated-value="true"
+></canvas>
+</body>
+</html>
+
