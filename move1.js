@@ -13,18 +13,20 @@
 */
 
 // link to the servopi library
-var servo = require('../../lib/servopi/servopi');
+//var servo = require('../../lib/servopi/servopi');
+var servo = require('./ABElectronics_NodeJS_Libraries/lib/servopi/servopi');
 
 // create a servo object on I2C channel 0x40 with a lower limit of 1ms, 
 // a high limit of 2ms and reset the Servo Pi to its default state
-servo = new Servo(0x40, 1.0, 2.0, true);
+//servo = new Servo(0x40, 1.0, 2.0, true);
+servo = new Servo(0x40, 0.55, 2.25, true);
 
 // Set PWM frequency to 50Hz (20ms) and enable the output
-servo.setFrequency(50);
+servo.setFrequency(50,0);
 servo.outputEnable();
 
 // create a positions array and a counter variable
-var positions = [1, 175, 250];
+var positions = [1, 125, 250];
 var count = 0;
 
 // tansforme un angle -90/90 en postion 0-250
@@ -49,6 +51,13 @@ function angleToPostion(angle) {
 // create a timer object that runs every second
 var myTimer = setInterval(clockTimer, 1000);
 
+servo.move(1, 1, 250);
+pos=servo.getPosition(1,250);
+console.log("pos="+pos);
+
+var sens = 1;
+var vitesse = 20;
+
 function clockTimer() {
     // move the servo channel 1 to the three positions
     servo.move(1, positions[count], 250);
@@ -56,5 +65,23 @@ function clockTimer() {
     if (count >= positions.length) {
         count = 0;
     }
+/*
+    servo.move(1,count,250);
+    if (sens == 1) {
+       count += vitesse;
+    }
+    if (sens == 0) {
+       count -= vitesse;
+    }
+    if (count >= 250) {
+       sens = 0;
+       count = 250;
+    }
+    if (count <= 0) {
+       sens = 1;
+       count = 0;
+    }
+*/
+    pos=servo.getPosition(1,250);
+    console.log("pos="+pos);
 }
-
