@@ -73,35 +73,54 @@ oscillo1.value = 150;
 
 var oscillo2 = new RadialGauge({
     renderTo: 'oscillo2',
+    units: 'Oscillo',
+    title: 'n° 2',
+});
+
+
+oscillo2.update({
     width: 300,
     height: 300,
-    units: 'Oscillo 2',
-    value: 0,
     minValue: 0,
-    startAngle: 180,
-    ticksAngle: 180,
-    valueBox: true,
     maxValue: 250,
-    majorTicks: [
-        '0','25','50','75','100','125','150','175','200','225','250'
-    ],
+    majorTicks: [0,25,50,75,100,125,150,175,200,225,250],
     minorTicks: 2,
     strokeTicks: true,
-    highlights: [
+    highlights: [ 
         { from:   0, to: 125, color: 'rgba(200,50,50,.75)' },
         { from: 125, to: 250, color: 'rgba(0,128,0,.75)' }
     ],
-    colorPlate: '#fff',
+    ticksAngle: 180,
+    startAngle: 180,
+    colorMajorTicks: '#ddd',
+    colorMinorTicks: '#ddd',
+    colorTitle: '#eee',
+    colorUnits: '#ccc',
+    colorNumbers: '#eee',
+    colorPlate: '#222',
     borderShadowWidth: 0,
-    borders: false,
-    needleType: 'arrow',
-    needleWidth: 2,
-    needleCircleSize: 7,
-    needleCircleOuter: true,
-    needleCircleInner: false,
+    borders: true,
+    needleType: 'line',
+    needleStart: 75,
+    needleEnd: 99,
+    needleWidth: 3,        
     animationDuration: 500,
     animationRule: 'linear',
-    animationTarget: 'plate'
+    animationTarget: 'plate',
+    colorBorderOuter: '#333',
+    colorBorderOuterEnd: '#111',
+    colorBorderMiddle: '#222',
+    colorBorderMiddleEnd: '#111',
+    colorBorderInner: '#111',
+    colorBorderInnerEnd: '#333',
+    colorNeedleShadowDown: '#333',
+    colorNeedleCircleOuter: '#333',
+    colorNeedleCircleOuterEnd: '#111',
+    colorNeedleCircleInner: '#111',
+    colorNeedleCircleInnerEnd: '#222',
+    valueBoxBorderRadius: 0,
+    colorValueBoxRect: '#222',
+    colorValueBoxRectEnd: '#333'
 });
 oscillo2.value = 50; 
 

@@ -27,7 +27,7 @@ servoSens[2] = SENS_HORAIRE;
 servoCount[2] = 0;
 
 //param servos
-servoRalenti[1] = 75;   //param 75=20sec
+servoRalenti[1] = 75;   //param 75=20sec  //mini 20ms !!
 servoStart[1] = 100;      //param
 servoStop[1] = 200;     //param
 

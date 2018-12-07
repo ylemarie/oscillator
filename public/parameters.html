@@ -22,193 +22,172 @@
     	</div>
     </div>
 	<div id="blocAllParam">
-
-<!-- param01: T° min eau -->
+		<hr>
+<!--
+| Ralenti         | Min   | Sec |
+|-----------------|-------|-----|
+| 1000            | 27sec | 27  |
+| 750             | 3m09  | 189 |
+| 500             | 2m07  | 127 |
+| 250             | 1m04  | 64  |
+| 125             | 32sec | 32  |
+| 75              | 20sec | 20  |
+		<hr>
+-->
+<!-- Oscillo n°1 -->
+		<div>Oscillo n°1</div>
+<!-- param01: vitesse entre 2 pas -->
 		<div class="blocParamImg">	
-			<img src="thermometer.png">
+			<img src="chronometers.png">
 		</div>
 		<div class="blocParamTxt">
-			<span>T° eau min: </span><span id="outputText1">xx</span><span>°C</span>
+			<span>Ralenti: </span><span id="outputText1">xx</span>
 		</div>
 		<div class="blocSlider">
-			<input type="range" id="inputSlider1" min="20" max="40" value="25" step="0.1" oninput="showParam(1,this.value)" />
+			<input type="range" id="inputSlider1" min="75" max="1000" value="250" step="5" oninput="showParam(1,this.value)" />
 		</div>
-
-<!-- param02: T° max eau -->	
+<!-- param02: angle mini -->	
 		<div class="blocParamImg">	
-			<img src="thermometer.png">
+			<img src="rewind.png">
 		</div>
 		<div class="blocParamTxt">
-			<span>T° eau max: </span><span id="outputText2">xx</span><span>°C</span>
+			<span>Angle min: </span><span id="outputText2">xx</span>
 		</div>				
 		<div class="blocSlider">
-			<input type="range" id="inputSlider2" min="20" max="40" value="25" step="0.1" oninput="showParam(2,this.value)" />
+			<input type="range" id="inputSlider2" min="1" max="250" value="1" step="1" oninput="showParam(2,this.value)" />
 		</div>
-
-<!-- param03: T° min air -->
+<!-- param03: angle maxi -->
 		<div class="blocParamImg">	
-			<img src="thermometer.png">
+			<img src="fast-forward.png">
 		</div>
 		<div class="blocParamTxt">
-			<span>T° air min: </span><span id="outputText3">xx</span><span>°C</span>
+			<span>Angle maxi: </span><span id="outputText3">xx</span>
 		</div>
 		<div class="blocSlider">
-			<input type="range" id="inputSlider3" min="15" max="50" value="25" step="0.1" oninput="showParam(3,this.value)" />
+			<input type="range" id="inputSlider3" min="1" max="250" value="250" step="1" oninput="showParam(3,this.value)" />
 		</div>
+		<hr>
 
-<!-- param04: T° max air -->	
+<!-- Oscillo n°2 -->
+		<div>Oscillo n°2</div>
+<!-- param04: vitesse entre 2 pas -->
 		<div class="blocParamImg">	
-			<img src="thermometer.png">
+			<img src="chronometers.png">
 		</div>
 		<div class="blocParamTxt">
-			<span>T° air max: </span><span id="outputText4">xx</span><span>°C</span>
+			<span>Ralenti: </span><span id="outputText4">xx</span>
+		</div>
+		<div class="blocSlider">
+			<input type="range" id="inputSlider4" min="75" max="1000" value="250" step="5" oninput="showParam(4,this.value)" />
+		</div>
+<!-- param05: angle mini -->	
+		<div class="blocParamImg">	
+			<img src="rewind.png">
+		</div>
+		<div class="blocParamTxt">
+			<span>Angle min: </span><span id="outputText5">xx</span>
 		</div>				
 		<div class="blocSlider">
-			<input type="range" id="inputSlider4" min="15" max="50" value="25" step="0.1" oninput="showParam(4,this.value)" />
+			<input type="range" id="inputSlider5" min="1" max="250" value="1" step="1" oninput="showParam(5,this.value)" />
 		</div>
-
-<!-- param05: Sonde T° eau bac -->	
+<!-- param06: angle maxi -->
 		<div class="blocParamImg">	
-			<img src="sonde.png">
+			<img src="fast-forward.png">
 		</div>
 		<div class="blocParamTxt">
-			<span>Sonde T° eau bac: </span><span id="outputText5">xx</span>
-		</div>				
-		<div class="blocSlider">
-			<input type="text" id="inputSlider5" oninput="showParam(5,this.value)" />
+			<span>Angle maxi: </span><span id="outputText6">xx</span>
 		</div>
+		<div class="blocSlider">
+			<input type="range" id="inputSlider6" min="1" max="250" value="250" step="1" oninput="showParam(6,this.value)" />
+		</div>
+		<hr>		
 
-<!-- param06: Sonde T° eau decant -->	
+<!-- Oscillo n°3 -->
+		<div>Oscillo n°3</div>
+<!-- param07: vitesse entre 2 pas -->
 		<div class="blocParamImg">	
-			<img src="sonde.png">
+			<img src="chronometers.png">
 		</div>
 		<div class="blocParamTxt">
-			<span>Sonde T° eau decant: </span><span id="outputText6">xx</span>
-		</div>				
-		<div class="blocSlider">
-			<input type="text" id="inputSlider6" oninput="showParam(6,this.value)" />
+			<span>Ralenti: </span><span id="outputText7">xx</span>
 		</div>
-
-<!-- param07: Sonde T° air bac -->	
+		<div class="blocSlider">
+			<input type="range" id="inputSlider7" min="75" max="1000" value="250" step="5" oninput="showParam(7,this.value)" />
+		</div>
+<!-- param08: angle mini -->	
 		<div class="blocParamImg">	
-			<img src="sonde.png">
+			<img src="rewind.png">
 		</div>
 		<div class="blocParamTxt">
-			<span>Sonde T° air bac: </span><span id="outputText7">xx</span>
+			<span>Angle min: </span><span id="outputText8">xx</span>
 		</div>				
 		<div class="blocSlider">
-			<input type="text" id="inputSlider7" oninput="showParam(7,this.value)" />
+			<input type="range" id="inputSlider8" min="1" max="250" value="1" step="1" oninput="showParam(8,this.value)" />
 		</div>
-
-<!-- param08: Sonde T° air decant -->	
+<!-- param09: angle maxi -->
 		<div class="blocParamImg">	
-			<img src="sonde.png">
+			<img src="fast-forward.png">
 		</div>
 		<div class="blocParamTxt">
-			<span>Sonde T° air decant: </span><span id="outputText8">xx</span>
-		</div>				
+			<span>Angle maxi: </span><span id="outputText9">xx</span>
+		</div>
 		<div class="blocSlider">
-			<input type="text" id="inputSlider8" oninput="showParam(8,this.value)" />
+			<input type="range" id="inputSlider9" min="1" max="250" value="250" step="1" oninput="showParam(9,this.value)" />
 		</div>
 
-<!-- param18: GPIO Decant Min -->	
-		<div class="blocParamImg">	
-			<img src="gpio.png">
-		</div>
-		<div class="blocParamTxt">
-			<span>GPIO decant Min: </span><span id="outputText18">xx</span>
-		</div>				
-		<div class="blocSlider">
-			<input type="text" id="inputSlider18" oninput="showParam(18,this.value)" />
+		<hr>		
+		<div>Ralneti
 		</div>
 
-<!-- param19: GPIO Decant Max -->	
+		<hr>
+<!-- Oscillo n°4 -->
+		<div>Oscillo n°4</div>
+<!-- param010: vitesse entre 2 pas -->
 		<div class="blocParamImg">	
-			<img src="gpio.png">
+			<img src="chronometers.png">
 		</div>
 		<div class="blocParamTxt">
-			<span>GPIO decant Max: </span><span id="outputText19">xx</span>
+			<span>Ralenti: </span><span id="outputText10">xx</span>
+		</div>
+		<div class="blocSlider">
+			<input type="range" id="inputSlider10" min="75" max="1000" value="250" step="5" oninput="showParam(10,this.value)" />
+		</div>
+<!-- param011: angle mini -->	
+		<div class="blocParamImg">	
+			<img src="rewind.png">
+		</div>
+		<div class="blocParamTxt">
+			<span>Angle min: </span><span id="outputText11">xx</span>
 		</div>				
 		<div class="blocSlider">
-			<input type="text" id="inputSlider19" oninput="showParam(19,this.value)" />
+			<input type="range" id="inputSlider11" min="1" max="250" value="1" step="1" oninput="showParam(11,this.value)" />
 		</div>
+<!-- param012: angle maxi -->
+		<div class="blocParamImg">	
+			<img src="fast-forward.png">
+		</div>
+		<div class="blocParamTxt">
+			<span>Angle maxi: </span><span id="outputText12">xx</span>
+		</div>
+		<div class="blocSlider">
+			<input type="range" id="inputSlider12" min="1" max="250" value="250" step="1" oninput="showParam(12,this.value)" />
+		</div>
+		<hr>		
 
-<!-- param20: GPIO Osmolation -->	
+<!--- Global params -->
+<!-- param013: fake -->
+<!--
 		<div class="blocParamImg">	
-			<img src="gpio.png">
+			<img src="fast-forward.png">
 		</div>
 		<div class="blocParamTxt">
-			<span>GPIO osmolation: </span><span id="outputText20">xx</span>
-		</div>				
+			<span>Angle maxi: </span><span id="outputText13"></span>
+		</div>
 		<div class="blocSlider">
-			<input type="text" id="inputSlider20" oninput="showParam(20,this.value)" />
+			<input type="range" id="inputSlider13" min="1" max="250" value="250" step="1" oninput="showParam(13,this.value)" />
 		</div>
-
-<!-- param21: GPIO Osmosee -->	
-		<div class="blocParamImg">	
-			<img src="gpio.png">
-		</div>
-		<div class="blocParamTxt">
-			<span>GPIO osmosee: </span><span id="outputText21">xx</span>
-		</div>				
-		<div class="blocSlider">
-			<input type="text" id="inputSlider21" oninput="showParam(21,this.value)" />
-		</div>
-
-<!-- param09: email -->	
-		<div class="blocParamImg">	
-			<img src="mail.png">
-		</div>
-		<div class="blocParamTxt">
-			<span>Email dest: </span><span id="outputText9">xx</span>
-		</div>				
-		<div class="blocSlider">
-			<input type="text" id="inputSlider9" oninput="showParam(9,this.value)" />
-		</div>
-
-<!-- param10: smtp server -->	
-		<div class="blocParamImg">	
-			<img src="mail.png">
-		</div>
-		<div class="blocParamTxt">
-			<span>SMTP server: </span><span id="outputText10">xx</span>
-		</div>				
-		<div class="blocSlider">
-			<input type="text" id="inputSlider10" oninput="showParam(10,this.value)" />
-		</div>
-
-<!-- param11: Send period -->	
-		<div class="blocParamImg">	
-			<img src="mail.png">
-		</div>
-		<div class="blocParamTxt">
-			<span>Send period: </span><span id="outputText11">xx</span><span> min</span>
-		</div>				
-		<div class="blocSlider">
-			<input type="range" id="inputSlider11" min="1" max="480" value="5" step="1" oninput="showParam(11,this.value)" />
-		</div>
-
-<!-- param12: smtp user -->	
-		<div class="blocParamImg">	
-			<img src="mail.png">
-		</div>
-		<div class="blocParamTxt">
-			<span>SMTP user: </span><span id="outputText12">xx</span>
-		</div>				
-		<div class="blocSlider">
-			<input type="text" id="inputSlider12" oninput="showParam(12,this.value)" />
-		</div>
-
-<!-- param13: smtp password -->	
-		<div class="blocParamImg">	
-			<img src="mail.png">
-		</div>
-		<div class="blocParamTxt">
-			<span>SMTP password: </span><span id="outputText13">xx</span>
-		</div>				
-		<div class="blocSlider">
-			<input type="text" id="inputSlider13" oninput="showParam(13,this.value)" />
-		</div>
+		<hr>
+-->
 
 <!-- param14: check period in seconds -->
 		<div class="blocParamImg">	
@@ -254,6 +233,7 @@
 			<input type="range" id="inputSlider17" min="0" max="1" value="1" step="1" oninput="showParam(17,this.value)" />
 		</div>
 
+		<hr>
 	</div>
 	<script type="text/javascript">		
 		var socket = io.connect();

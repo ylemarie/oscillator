@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
   <head>
-	<title>Aqua Survey</title>
+	<title>Oscillator</title>
 	<meta name="viewport" content="width=400" />
 	
 	<script src="socket.io/socket.io.js"></script>
@@ -12,150 +12,101 @@
 	<style>
 	body {
 		color: white;
+		background:  #fff;
 	}
 	</style>
 
   </head>
   <body>
   	<div id="header">
-    	<div id='titre'>Oscillator</div>
+    	<div id='titre'>Oscillator x4</div>
     	<div id="menu">
     		<a href="parameters.html"><img id="parameters" src="parameters.png"></a>
     	</div>
     </div>
-
-    <canvas id="oscillo1"></canvas>
-    <canvas id="oscillo2"></canvas>
-    <canvas id="oscillo3"></canvas>
+    <div id="infos">
+	    <canvas id="oscillo1"></canvas>
+	    <canvas id="oscillo2"></canvas>
+	    <canvas id="oscillo3"></canvas>
+	    <canvas id="oscillo4"></canvas>
+	</div>
 <script>
+
 var oscillo1 = new RadialGauge({
     renderTo: 'oscillo1',
-    width: 300,
-    height: 300,
-    units: 'Oscillo 1',
-    value: 0,
-    minValue: 0,
-    startAngle: 180,
-    ticksAngle: 180,
-    valueBox: true,
-    maxValue: 250,
-    majorTicks: [
-        '0','25','50','75','100','125','150','175','200','225','250'
-    ],
-    minorTicks: 2,
-    strokeTicks: true,
-    highlights: [
-        { from:   0, to: 125, color: 'rgba(200,50,50,.75)' },
-        { from: 125, to: 250, color: 'rgba(0,128,0,.75)' }
-    ],
-    colorPlate: '#fff',
-    borderShadowWidth: 0,
-    borders: false,
-/*
-    needleType: 'arrow',
-    needleWidth: 2,
-    needleCircleSize: 7,
-    needleCircleOuter: true,
-    needleCircleInner: false,
-*/
-    needleType: 'line',
-    needleStart: 75,
-    needleEnd : 99,
-    needlewidth:3,
-    needleStart: 75,
-    needleEnd: 99,
-
-    animationDuration: 500,
-    animationRule: 'linear',
-    animationTarget: 'plate'
+    units: 'Oscillo',
+    title: 'n° 1',
 });
-oscillo1.value = 150;    
+oscillo1.value = 5; 
 
 var oscillo2 = new RadialGauge({
     renderTo: 'oscillo2',
-    width: 300,
-    height: 300,
-    units: 'Oscillo 2',
-    value: 0,
-    minValue: 0,
-    startAngle: 180,
-    ticksAngle: 180,
-    valueBox: true,
-    maxValue: 250,
-    majorTicks: [
-        '0','25','50','75','100','125','150','175','200','225','250'
-    ],
-    minorTicks: 2,
-    strokeTicks: true,
-    highlights: [
-        { from:   0, to: 125, color: 'rgba(200,50,50,.75)' },
-        { from: 125, to: 250, color: 'rgba(0,128,0,.75)' }
-    ],
-    colorPlate: '#fff',
-    borderShadowWidth: 0,
-    borders: false,
-    needleType: 'arrow',
-    needleWidth: 2,
-    needleCircleSize: 7,
-    needleCircleOuter: true,
-    needleCircleInner: false,
-    animationDuration: 500,
-    animationRule: 'linear',
-    animationTarget: 'plate'
+    units: 'Oscillo',
+    title: 'n° 2',
 });
 oscillo2.value = 50; 
 
 var oscillo3 = new RadialGauge({
     renderTo: 'oscillo3',
-    width: 300,
-    height: 300,    
-    minValue: 0,
-    maxValue: 250,
-    majorTicks: [0,50,100,150,200,250],
-    minorTicks: 5,
-    ticksAngle: 180,
-    startAngle: 180,
-    strokeTicks: false,
-    highlights: [
-        { from:   0, to: 125, color: 'rgba(200,50,50,.75)' },
-        { from: 125, to: 250, color: 'rgba(0,128,0,.75)' }
-    ],
-    colorPlate: '#33a',
-    colorMajorTicks: '#f5f5f5',
-    colorMinorTicks: '#ddd',
-    colorNumbers: '#ccc',
-    colorNeedle: 'rgba(240, 128, 128, 1)',
-    colorNeedleEnd: 'rgba(255, 160, 122, .9)',
-    valueBox: false,
-    valueTextShadow: false,
-    colorCircleInner: '#fff',
-    colorNeedleCircleOuter: '#ccc',
-    needleCircleSize: 15,
-    needleCircleOuter: false,
-    animationRule: 'linear',
-    needleType: 'line',
-    needleStart: 75,
-    needleEnd: 99,
-    needleWidth: 3,
-    borders: true,
-    borderInnerWidth: 0,
-    borderMiddleWidth: 0,
-    borderOuterWidth: 10,
-    colorBorderOuter: '#ccc',
-    colorBorderOuterEnd: '#ccc',
-    colorNeedleShadowDown: '#222',
-    borderShadowWidth: 0,
-    animationTarget: 'plate',
     units: 'Oscillo',
-    title: 'n°1',
-    fontTitleSize: 19,
-    colorTitle: '#f5f5f5',
-    valueBox: true,
-    colorValueBoxRect: '#222',
-    colorValueBoxRectEnd: '#333',
-    animationDuration: 1000
+    title: 'n° 3',
 });
-oscillo3.value = 75; 
+oscillo3.value = 100; 
+
+var oscillo4 = new RadialGauge({
+    renderTo: 'oscillo4',
+    units: 'Oscillo',
+    title: 'n° 4',
+});
+oscillo4.value = 150; 
+
+document.gauges.forEach(function (gauge) {
+	gauge.update({
+	    width: 300,
+	    height: 300,
+	    minValue: 0,
+	    maxValue: 250,
+	    majorTicks: [0,25,50,75,100,125,150,175,200,225,250],
+	    minorTicks: 2,
+	    strokeTicks: true,
+	    highlights: [ 
+	        { from:   0, to: 125, color: 'rgba(200,50,50,.75)' },
+	        { from: 125, to: 250, color: 'rgba(0,128,0,.75)' }
+	    ],
+	    ticksAngle: 180,
+	    startAngle: 180,
+	    colorMajorTicks: '#ddd',
+	    colorMinorTicks: '#ddd',
+	    colorTitle: '#eee',
+	    colorUnits: '#ccc',
+	    colorNumbers: '#eee',
+	    colorPlate: '#222',
+	    borderShadowWidth: 0,
+	    borders: true,
+	    needleType: 'line',
+	    needleStart: 75,
+	    needleEnd: 99,
+	    needleWidth: 3,        
+	    animationDuration: 500,
+	    animationRule: 'linear',
+	    animationTarget: 'plate',
+	    colorBorderOuter: '#333',
+	    colorBorderOuterEnd: '#111',
+	    colorBorderMiddle: '#222',
+	    colorBorderMiddleEnd: '#111',
+	    colorBorderInner: '#111',
+	    colorBorderInnerEnd: '#333',
+	    colorNeedleShadowDown: '#333',
+	    colorNeedleCircleOuter: '#333',
+	    colorNeedleCircleOuterEnd: '#111',
+	    colorNeedleCircleInner: '#111',
+	    colorNeedleCircleInnerEnd: '#222',
+	    valueBoxBorderRadius: 0,
+	    colorValueBoxRect: '#222',
+	    colorValueBoxRectEnd: '#333'
+	})
+});
+
 </script>
 <!-- ******************************* -->
 	<script type="text/javascript">		
