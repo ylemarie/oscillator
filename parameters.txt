@@ -1,0 +1,23 @@
+NB_OSCILLOS	: nombre d'oscillos (4)
+CHECK_PERIOD : interval de maj de la page web en seconde (1)
+SERVER_PORT : port http du serveur nodeJS (8087)
+DEBUG : affiche des infos dans la console 0 ou 1)
+LOG : affiche des infos dans la console (pas utilsé)
+
+OSCILLO1_RALENTI : Vitesse de ralenti de l'oscillo n°1 pour faire 180° (75=20sec, 150=40sec, 300=1m20sec, ... 1000=4m10sec)
+OSCILLO1_START : Point de départ de l'oscillo n°1 entre 1 et 250
+OSCILLO1_STOP : Point d'arrivée de l'oscillo n°1 entre 1 et 250
+
+OSCILLO2_RALENTI :
+OSCILLO2_START : 
+OSCILLO2_STOP : 
+
+OSCILLO3_RALENTI : 
+OSCILLO3_START : 
+OSCILLO3_STOP : 
+
+OSCILLO4_RALENTI : 
+OSCILLO4_START : 
+OSCILLO4_STOP : 
+
+ADJUST_STEP : Avance en pas moteur (sur 250) pour le mode réglage

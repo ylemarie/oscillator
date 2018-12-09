@@ -1,0 +1,24 @@
+[
+{"name":"CHECK_PERIOD","value":1},
+{"name":"SERVER_PORT","value":8987},
+{"name":"DEBUG","value":1},
+{"name":"LOG","value":1},
+
+{"name":"OSCILLO1_RALENTI","value":75},
+{"name":"OSCILLO1_START","value":1},
+{"name":"OSCILLO1_STOP","value":250},
+
+{"name":"OSCILLO2_RALENTI","value":150},
+{"name":"OSCILLO2_START","value":10},
+{"name":"OSCILLO2_STOP","value":240},
+
+{"name":"OSCILLO3_RALENTI","value":300},
+{"name":"OSCILLO3_START","value":20},
+{"name":"OSCILLO3_STOP","value":230},
+
+{"name":"OSCILLO4_RALENTI","value":600},
+{"name":"OSCILLO4_START","value":30},
+{"name":"OSCILLO4_STOP","value":220},
+
+{"name":"ADJUST_STEP", "value":10}
+]
