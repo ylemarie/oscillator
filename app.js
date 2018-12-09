@@ -37,7 +37,7 @@ var NB_OSCILLOS	 = OSCILLO.length;
 var OSCILLO_STATE = [];
 for (i=0; i<NB_OSCILLOS; i++) {
 	num = i+1;
-	OSCILLO_STATE[i]   = ON;
+	OSCILLO_STATE[i] = ON;
 }
 
 if (DEBUG) { 
@@ -72,14 +72,12 @@ servo = new Servo(0x40, 0.55, 2.25, true);   //FUTABA S30003 & H-KING HK 152169
 servo.setFrequency(50,0);
 servo.outputEnable();
 
+//init servos
 var servoSens = [];
 var servoCount = [];
-
-//init servos
 for (i=0; i<NB_OSCILLOS; i++) {
-	num = i+1;
-	servoSens[num] = SENS_HORAIRE;  
-	servoCount[num] = 0;
+	servoSens[i] = SENS_HORAIRE;  
+	servoCount[i] = 0;
 }
 
 var myServo = [];
@@ -89,7 +87,7 @@ for (i=0; i<NB_OSCILLOS; i++) {
 	myServo[i] = setInterval(function() { moveServo(num) }, OSCILLO_RALENTI[i]);
 }
 */
-myServo[0] = setInterval(function() { moveServo(1) }, OSCILLO[0].ralenti);	//servo 1 = OSCILLO[0].ralenti
+myServo[0] = setInterval(function() { moveServo(1) }, OSCILLO[0].ralenti);	//servo 1 = OSCILLO[0]
 myServo[1] = setInterval(function() { moveServo(2) }, OSCILLO[1].ralenti);
 myServo[2] = setInterval(function() { moveServo(3) }, OSCILLO[2].ralenti);
 myServo[3] = setInterval(function() { moveServo(4) }, OSCILLO[3].ralenti);
@@ -97,27 +95,27 @@ myServo[3] = setInterval(function() { moveServo(4) }, OSCILLO[3].ralenti);
 
 //clearInterval(myServo[0]);	//stop un oscillo
 
-function moveServo(n) {
+function moveServo(n) {	//n de 1 à 4
 	if (OSCILLO_STATE[n-1] == ON) {		//tous les oscillos start/stop en meme temps
-	    servo.move(n, servoCount[n], 250);  //250 = nbre de PAS du servo
+	    servo.move(n, servoCount[n-1], 250);  //250 = nbre de PAS du servo
 
-	    if (servoSens[n] == SENS_HORAIRE) {
-	       servoCount[n] += PAS;
+	    if (servoSens[n-1] == SENS_HORAIRE) {
+	       servoCount[n-1] += PAS;
 	    }
-	    if (servoSens[n] == SENS_INVERSE) {
-	       servoCount[n] -= PAS;
+	    if (servoSens[n-1] == SENS_INVERSE) {
+	       servoCount[n-1] -= PAS;
 	    }
-	    if (servoCount[n] >= OSCILLO[n-1].stop) {
-	       console.log("servo"+n+" limite stop atteinte:"+OSCILLO[n-1].stop+" change de sens !");
-	       servoSens[n] = SENS_INVERSE;       //on inverse le sens
-	       servoCount[n] = OSCILLO[n-1].stop;      //on fixe le max (au cas ou)
+	    if (servoCount[n-1] >= OSCILLO[n-1].stop) {
+	       console.log("servo:"+n+" count:"+servoCount[n-1]+" limite STOP atteinte:"+OSCILLO[n-1].stop+" change de sens !");
+	       servoSens[n-1] = SENS_INVERSE;       //on inverse le sens
+	       servoCount[n-1] = OSCILLO[n-1].stop;      //on fixe le max (au cas ou)
 	    }
-	    if (servoCount[n] <= OSCILLO[n-1].start) {
-	       console.log("servo"+n+" limite start atteinte:"+OSCILLO[n-1].start+" change de sens !");
-	       servoSens[n] = SENS_HORAIRE;       //on iverse le sens
-	       servoCount[n] = OSCILLO[n-1].start;     //on fixe le min (au cas ou)
+	    if (servoCount[n-1] <= OSCILLO[n-1].start) {
+	       console.log("servo:"+n+" count:"+servoCount[n-1]+" limite START:"+OSCILLO[n-1].start+" change de sens !");
+	       servoSens[n-1] = SENS_HORAIRE;       //on iverse le sens
+	       servoCount[n-1] = OSCILLO[n-1].start;     //on fixe le min (au cas ou)
 	    }	    
-	    //console.log("servo="+n+" sens="+servoSens[n]+" PAS="+PAS+" ralenti="+OSCILLO_RALENTI[n-1]+" pos="+servo.getPosition(n, 250));
+	    //console.log("servo:"+n+" count:"+servoCount[n-1]+" sens:"+servoSens[n-1]+" PAS:"+PAS+" ralenti:"+OSCILLO[n-1].ralenti+" pos:"+servo.getPosition(n, 250));
 	} //else {
 		//console.log("servo "+n+" stopped !");
 	//}
@@ -239,9 +237,18 @@ io.sockets.on('connection', function (socket) {
 		//setParam( "ADJUST_STEP", ADJUST_STEP );
 		jsonfile.writeFileSync(file, parameters);
 		if (DEBUG) { console.log( jsonfile.readFileSync(file) ); }        
+		
+		//reinit les servo car les ralenti ont peut-être changes
+		clearInterval(myServo[0]);
+		clearInterval(myServo[1]);
+		clearInterval(myServo[2]);
+		clearInterval(myServo[3]);
+		myServo[0] = setInterval(function() { moveServo(1) }, OSCILLO[0].ralenti);	//servo 1 = OSCILLO[0]
+		myServo[1] = setInterval(function() { moveServo(2) }, OSCILLO[1].ralenti);
+		myServo[2] = setInterval(function() { moveServo(3) }, OSCILLO[2].ralenti);
+		myServo[3] = setInterval(function() { moveServo(4) }, OSCILLO[3].ralenti);		
     });    
 
 });
-
 
 //End main program--- -------------------------------------

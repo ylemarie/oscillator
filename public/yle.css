@@ -146,8 +146,12 @@ div#menu {
      width: 40px;
      font-size: 20px;
 }
-#oscilloswitch,#ralenti {
+#oscilloswitch {
     width: 60px;
+    font-size: 20px;    
+}
+#ralenti {
+    width: 70px;
     font-size: 20px;    
 }
 #limite,#oscillomove {
